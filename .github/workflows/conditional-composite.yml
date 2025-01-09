@@ -1,10 +1,8 @@
+# A simple action that performs conditional behavior when a composite stage fails
+
 name: conditional_composite
 
-on:
-#   # Triggers the workflow on push or pull request events but only for the main branch
-#   push:
-#     branches: [main]
-      
+on:      
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
