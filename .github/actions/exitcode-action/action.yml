@@ -1,0 +1,25 @@
+
+# This composite action runs a script and exits with the given exit code.
+
+name: Exit Code Action
+description: 'Exit with the given exit code'
+inputs:
+    exit-code:
+      description: 'The exit code'
+      required: true
+
+outputs:
+    exit-code:
+        description: 'The exit code'
+        value: ${{ inputs.exit-code }}
+
+runs:
+    using: 'composite'
+    steps:
+      - name: Run script
+        shell: bash
+        run: |
+          echo "Script exiting with code: ${{ inputs.exit-code }}"
+          exit ${{ inputs.exit-code }}
+
+   
