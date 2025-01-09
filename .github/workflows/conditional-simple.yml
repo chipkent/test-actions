@@ -1,0 +1,43 @@
+name: conditional_simple
+
+on:
+#   # Triggers the workflow on push or pull request events but only for the main branch
+#   push:
+#     branches: [main]
+      
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  experiment:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Run stage 1
+        id: work_1
+        run: |
+            exit 0
+      - name: Check success 1
+        if: steps.work_1.outcome == 'success'
+        run: |
+            echo "Ran check success 1"
+            exit 0
+      - name: Check fail 1
+        if: steps.work_1.outcome != 'success'
+        run: |
+            echo "Ran check fail 1"
+            exit 1
+    
+      - name: Run stage 2
+        id: work_2
+        run: |
+            exit 1
+      - name: Check success 2
+        if: steps.work_2.outcome == 'success'
+        run: |
+            echo "Ran check success 2"
+            exit 1
+      - name: Check fail 2
+        if: steps.work_2.outcome != 'success'
+        run: |
+            echo "Ran check fail 2"
+            exit 0
