@@ -16,6 +16,7 @@ jobs:
         id: work_1
         run: |
             exit 0
+        continue-on-error: true
       - name: Check success 1
         if: steps.work_1.outcome == 'success'
         run: |
@@ -31,6 +32,7 @@ jobs:
         id: work_2
         run: |
             exit 1
+        continue-on-error: true
       - name: Check success 2
         if: steps.work_2.outcome == 'success'
         run: |
