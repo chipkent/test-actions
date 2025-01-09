@@ -17,7 +17,7 @@ jobs:
         uses: chipkent/test-actions/.github/actions/exitcode-action@main
         with:
           exit-code: 0
-        # continue-on-error: true
+        continue-on-error: true
       - name: Check success 1
         if: steps.work_1.outcome == 'success'
         run: |
@@ -34,7 +34,7 @@ jobs:
         uses: chipkent/test-actions/.github/actions/exitcode-action@main
         with:
           exit-code: 1
-        # continue-on-error: true
+        continue-on-error: true
       - name: Check success 2
         if: steps.work_2.outcome == 'success'
         run: |
